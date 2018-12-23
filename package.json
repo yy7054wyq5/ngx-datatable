@@ -1,7 +1,7 @@
 {
-  "name": "@swimlane/ngx-datatable",
+  "name": "ngx-datatable-wy",
   "version": "14.0.0",
-  "description": "ngx-datatable is a Angular2+ table grid component for presenting large and complex data.",
+  "description": "fork, ngx-datatable is a Angular2+ table grid component for presenting large and complex data.",
   "main": "release/index.js",
   "typings": "release/index.d.ts",
   "scripts": {
