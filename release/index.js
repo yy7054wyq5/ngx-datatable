@@ -1,5 +1,5 @@
 /**
- * angular2-data-table v"13.1.0" (https://github.com/swimlane/angular2-data-table)
+ * angular2-data-table v"14.0.3" (https://github.com/swimlane/angular2-data-table)
  * Copyright 2016
  * Licensed under MIT
  */
@@ -1286,7 +1286,8 @@ var DataTableBodyComponent = /** @class */ (function () {
         this.rowTrackingFn = function (index, row) {
             var idx = this.getRowIndex(row);
             if (this.trackByProp) {
-                return idx + "-" + this.trackByProp;
+                return row[this.trackByProp];
+                // return `${idx}-${this.trackByProp}`;
             }
             else {
                 return idx;
