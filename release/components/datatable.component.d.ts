@@ -430,6 +430,12 @@ export declare class DatatableComponent implements OnInit, DoCheck, AfterViewIni
      */
     recalculate(): void;
     /**
+     * 刷新表格
+     *
+     * @memberof DatatableComponent
+     */
+    refresh(): void;
+    /**
      * Window resize handler to update sizes.
      */
     onWindowResize(): void;

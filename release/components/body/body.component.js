@@ -233,6 +233,7 @@ var DataTableBodyComponent = /** @class */ (function () {
      * when a user is server-side pagination via virtual scroll.
      */
     DataTableBodyComponent.prototype.onBodyScroll = function (event) {
+        console.log(event);
         var scrollYPos = event.scrollYPos;
         var scrollXPos = event.scrollXPos;
         // if scroll change, trigger update
@@ -247,7 +248,10 @@ var DataTableBodyComponent = /** @class */ (function () {
         this.offsetX = scrollXPos;
         this.updateIndexes();
         this.updatePage(event.direction);
-        this.updateRows();
+        // this.updateRows();
+        if (event.direction) {
+            this.updateRows();
+        }
     };
     /**
      * Updates the page given a direction.

@@ -615,6 +615,15 @@ var DatatableComponent = /** @class */ (function () {
         this.recalculateColumns();
     };
     /**
+     * 刷新表格
+     *
+     * @memberof DatatableComponent
+     */
+    DatatableComponent.prototype.refresh = function () {
+        this.recalculate();
+        this.cd.markForCheck();
+    };
+    /**
      * Window resize handler to update sizes.
      */
     DatatableComponent.prototype.onWindowResize = function () {

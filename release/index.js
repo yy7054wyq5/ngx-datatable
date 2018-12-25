@@ -1,5 +1,5 @@
 /**
- * angular2-data-table v"14.0.3" (https://github.com/swimlane/angular2-data-table)
+ * angular2-data-table v"14.0.4" (https://github.com/swimlane/angular2-data-table)
  * Copyright 2016
  * Licensed under MIT
  */
@@ -1472,6 +1472,7 @@ var DataTableBodyComponent = /** @class */ (function () {
      * when a user is server-side pagination via virtual scroll.
      */
     DataTableBodyComponent.prototype.onBodyScroll = function (event) {
+        console.log(event);
         var scrollYPos = event.scrollYPos;
         var scrollXPos = event.scrollXPos;
         // if scroll change, trigger update
@@ -1486,7 +1487,10 @@ var DataTableBodyComponent = /** @class */ (function () {
         this.offsetX = scrollXPos;
         this.updateIndexes();
         this.updatePage(event.direction);
-        this.updateRows();
+        // this.updateRows();
+        if (event.direction) {
+            this.updateRows();
+        }
     };
     /**
      * Updates the page given a direction.
@@ -3372,6 +3376,15 @@ var DatatableComponent = /** @class */ (function () {
     DatatableComponent.prototype.recalculate = function () {
         this.recalculateDims();
         this.recalculateColumns();
+    };
+    /**
+     * 刷新表格
+     *
+     * @memberof DatatableComponent
+     */
+    DatatableComponent.prototype.refresh = function () {
+        this.recalculate();
+        this.cd.markForCheck();
     };
     /**
      * Window resize handler to update sizes.
