@@ -858,7 +858,7 @@ export class DatatableComponent implements OnInit, DoCheck, AfterViewInit {
   }
 
   /**
-   * 刷新表格
+   * refresh Datatable
    *
    * @memberof DatatableComponent
    */
