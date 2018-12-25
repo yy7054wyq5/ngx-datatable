@@ -7,9 +7,7 @@ import { Component } from '@angular/core';
       <h3>
         Horizontal and Vertical Scrolling
         <small>
-          <a href="https://github.com/swimlane/ngx-datatable/blob/master/demo/basic/scrolling.component.ts" target="_blank">
-            Source
-          </a>
+          <a href="https://github.com/swimlane/ngx-datatable/blob/master/demo/basic/scrolling.component.ts" target="_blank"> Source </a>
         </small>
       </h3>
       <ngx-datatable
@@ -19,11 +17,15 @@ import { Component } from '@angular/core';
         [headerHeight]="50"
         [footerHeight]="0"
         [rowHeight]="50"
+        [summaryRow]="1"
+        [summaryPosition]="'top'"
+        [summaryHeight]="'auto'"
         [scrollbarV]="true"
-        [scrollbarH]="true">
+        [scrollbarH]="true"
+      >
         <ngx-datatable-column name="Name" [width]="300"></ngx-datatable-column>
         <ngx-datatable-column name="Gender"></ngx-datatable-column>
-        <ngx-datatable-column name="Age"></ngx-datatable-column>
+        <ngx-datatable-column name="Age" [summaryFunc]="sum"></ngx-datatable-column>
         <ngx-datatable-column name="City" [width]="300" prop="address.city"></ngx-datatable-column>
         <ngx-datatable-column name="State" [width]="300" prop="address.state"></ngx-datatable-column>
       </ngx-datatable>
@@ -31,11 +33,10 @@ import { Component } from '@angular/core';
   `
 })
 export class HorzVertScrolling {
-
   rows = [];
 
   constructor() {
-    this.fetch((data) => {
+    this.fetch(data => {
       this.rows = data;
     });
   }
@@ -51,4 +52,7 @@ export class HorzVertScrolling {
     req.send();
   }
 
+  sum = () => {
+    return 1;
+  }
 }

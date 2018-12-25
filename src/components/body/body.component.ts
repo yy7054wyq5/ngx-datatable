@@ -336,6 +336,8 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
    * when a user is server-side pagination via virtual scroll.
    */
   onBodyScroll(event: any): void {
+    console.log(event);
+
     const scrollYPos: number = event.scrollYPos;
     const scrollXPos: number = event.scrollXPos;
 
@@ -353,7 +355,12 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
 
     this.updateIndexes();
     this.updatePage(event.direction);
-    this.updateRows();
+    // this.updateRows();
+
+    if(event.direction) { // 垂直滚动才更新rows
+      this.updateRows();
+    }
+    
   }
 
   /**
