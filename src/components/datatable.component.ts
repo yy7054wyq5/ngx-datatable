@@ -858,6 +858,16 @@ export class DatatableComponent implements OnInit, DoCheck, AfterViewInit {
   }
 
   /**
+   * 刷新表格
+   *
+   * @memberof DatatableComponent
+   */
+  refresh() {
+    this.recalculate();
+    this.cd.markForCheck();
+  }
+
+  /**
    * Window resize handler to update sizes.
    */
   @HostListener('window:resize')
