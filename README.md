@@ -2,6 +2,8 @@
 
 > fork from  [@swimlane/ngx-datatable](https://github.com/swimlane/ngx-datatable)
 
+support Angular7.0
+
 ## add
 
 * Horizontal scrolling does not trigger updateRows() methods.
