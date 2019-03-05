@@ -1488,7 +1488,7 @@ var DataTableBodyComponent = /** @class */ (function () {
         this.updateIndexes();
         this.updatePage(event.direction);
         // this.updateRows();
-        if (event.direction) {
+        if (event.direction) { // 垂直滚动才更新rows
             this.updateRows();
         }
     };
@@ -2197,6 +2197,7 @@ var DataTableSelectionComponent = /** @class */ (function () {
         this.select = new core_1.EventEmitter();
     }
     DataTableSelectionComponent.prototype.selectRow = function (event, index, row) {
+        var _a;
         if (!this.selectEnabled)
             return;
         var chkbox = this.selectionType === types_1.SelectionType.checkbox;
@@ -2226,7 +2227,6 @@ var DataTableSelectionComponent = /** @class */ (function () {
         this.select.emit({
             selected: selected
         });
-        var _a;
     };
     DataTableSelectionComponent.prototype.onActivate = function (model, index) {
         var type = model.type, event = model.event, row = model.row;
@@ -2379,13 +2379,16 @@ __export(__webpack_require__("./src/components/body/summary/summary-row.componen
 
 "use strict";
 
-var __assign = (this && this.__assign) || Object.assign || function(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-            t[p] = s[p];
-    }
-    return t;
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
 };
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2762,13 +2765,16 @@ exports.DataTableColumnCellTreeToggle = DataTableColumnCellTreeToggle;
 
 "use strict";
 
-var __assign = (this && this.__assign) || Object.assign || function(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-            t[p] = s[p];
-    }
-    return t;
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
 };
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3378,7 +3384,7 @@ var DatatableComponent = /** @class */ (function () {
         this.recalculateColumns();
     };
     /**
-     * 刷新表格
+     * refresh Datatable
      *
      * @memberof DatatableComponent
      */
@@ -3635,6 +3641,7 @@ var DatatableComponent = /** @class */ (function () {
      * Toggle all row selection
      */
     DatatableComponent.prototype.onHeaderSelect = function (event) {
+        var _a, _b;
         if (this.selectAllRowsOnPage) {
             // before we splice, chk if we currently have all selected
             var first = this.bodyComponent.indexes.first;
@@ -3660,7 +3667,6 @@ var DatatableComponent = /** @class */ (function () {
         this.select.emit({
             selected: this.selected
         });
-        var _a, _b;
     };
     /**
      * A row was selected from body
@@ -4682,13 +4688,16 @@ exports.DataTableHeaderCellComponent = DataTableHeaderCellComponent;
 
 "use strict";
 
-var __assign = (this && this.__assign) || Object.assign || function(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-            t[p] = s[p];
-    }
-    return t;
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
 };
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7413,10 +7422,10 @@ function groupRowsByParents(rows, from, to) {
             }
             return arr;
         }, []);
-        for (var i = 0; i < l; i++) {
+        for (var i = 0; i < l; i++) { // make TreeNode objects for each item
             nodeById[to(rows[i])] = new TreeNode(rows[i]);
         }
-        for (var i = 0; i < l; i++) {
+        for (var i = 0; i < l; i++) { // link all TreeNode objects
             node = nodeById[to(rows[i])];
             var parent_1 = 0;
             var fromValue = from(node.row);

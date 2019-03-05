@@ -249,7 +249,7 @@ var DataTableBodyComponent = /** @class */ (function () {
         this.updateIndexes();
         this.updatePage(event.direction);
         // this.updateRows();
-        if (event.direction) {
+        if (event.direction) { // 垂直滚动才更新rows
             this.updateRows();
         }
     };
