@@ -4,6 +4,11 @@
 
 support Angular7.0, wyy branch for publish.
 
+```cmd
+ # postversion
+ npm run postversion [tag]
+```
+
 ## add
 
 * Horizontal scrolling does not trigger updateRows() methods.
