@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [15.1.1](https://github.com/swimlane/ngx-datatable/compare/v15.1.0...v15.1.1) (2019-04-03)
+
+
+
 # 15.1.0 (2019-04-03)
 
 

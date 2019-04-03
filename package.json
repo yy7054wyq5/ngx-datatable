@@ -1,6 +1,6 @@
 {
   "name": "ngx-datatable-wy",
-  "version": "15.1.0",
+  "version": "15.1.1",
   "description": "ngx-datatable is a Angular2+ table grid component for presenting large and complex data. NOTE: this is angular6 version.",
   "main": "release/index.js",
   "typings": "release/index.d.ts",
@@ -13,7 +13,7 @@
     "lint": "tslint ./src/**/*.ts ./test/**/*.ts",
     "version": "npm run release",
     "preversion": "npm test",
-    "postversion": "standard-version",
+    "postversion": "standard-version -- --release-as",
     "clean": "npm-run-all -p clean:*",
     "clean:build": "rimraf build",
     "clean:dist": "rimraf dist",
