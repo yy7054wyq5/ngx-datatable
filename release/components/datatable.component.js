@@ -616,14 +616,6 @@ var DatatableComponent = /** @class */ (function () {
     DatatableComponent.prototype.recalculate = function () {
         this.recalculateDims();
         this.recalculateColumns();
-    };
-    /**
-     * refresh Datatable
-     *
-     * @memberof DatatableComponent
-     */
-    DatatableComponent.prototype.refresh = function () {
-        this.recalculate();
         this.cd.markForCheck();
     };
     /**

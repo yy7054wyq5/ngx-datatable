@@ -1,5 +1,5 @@
 /**
- * angular2-data-table v"14.0.4" (https://github.com/swimlane/angular2-data-table)
+ * angular2-data-table v"15.0.0" (https://github.com/swimlane/angular2-data-table)
  * Copyright 2016
  * Licensed under MIT
  */
@@ -3382,14 +3382,6 @@ var DatatableComponent = /** @class */ (function () {
     DatatableComponent.prototype.recalculate = function () {
         this.recalculateDims();
         this.recalculateColumns();
-    };
-    /**
-     * refresh Datatable
-     *
-     * @memberof DatatableComponent
-     */
-    DatatableComponent.prototype.refresh = function () {
-        this.recalculate();
         this.cd.markForCheck();
     };
     /**

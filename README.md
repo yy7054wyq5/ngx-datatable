@@ -2,7 +2,7 @@
 
 > fork from  [@swimlane/ngx-datatable](https://github.com/swimlane/ngx-datatable)
 
-support Angular7.0
+support Angular7.0, wyy branch for publish.
 
 ## add
 
@@ -24,9 +24,10 @@ support Angular7.0
 
 ```javascript
   // src/components/datatable.component.ts
-  refresh() {
-    this.recalculate();
-    this.cd.markForCheck();
+  recalculate(): void {
+    this.recalculateDims();
+    this.recalculateColumns();
+    this.cd.markForCheck(); // +++
   }
 ```
 
