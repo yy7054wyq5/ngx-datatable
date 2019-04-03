@@ -855,15 +855,6 @@ export class DatatableComponent implements OnInit, DoCheck, AfterViewInit {
   recalculate(): void {
     this.recalculateDims();
     this.recalculateColumns();
-  }
-
-  /**
-   * refresh Datatable
-   *
-   * @memberof DatatableComponent
-   */
-  refresh() {
-    this.recalculate();
     this.cd.markForCheck();
   }
 
