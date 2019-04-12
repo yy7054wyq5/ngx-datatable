@@ -29,7 +29,7 @@ export class DataTableSelectionComponent {
   @Input() selectCheck: any;
 
   @Output() activate: EventEmitter<any> = new EventEmitter();
-  @Output() select: EventEmitter<any> = new EventEmitter();
+  @Output() select: EventEmitter<{selected: any[], row: any}> = new EventEmitter();
 
   prevIndex: number;
 
@@ -68,7 +68,8 @@ export class DataTableSelectionComponent {
     this.prevIndex = index;
 
     this.select.emit({
-      selected
+      selected,
+      row // + 选中行返回当前行数据
     });
   }
 

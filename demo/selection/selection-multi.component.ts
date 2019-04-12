@@ -74,8 +74,8 @@ export class MultiSelectionComponent {
     req.send();
   }
 
-  onSelect({ selected }) {
-    console.log('Select Event', selected, this.selected);
+  onSelect({ selected, row }) {
+    console.log('Select Event', selected, this.selected, row);
 
     this.selected.splice(0, this.selected.length);
     this.selected.push(...selected);

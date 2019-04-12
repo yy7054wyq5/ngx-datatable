@@ -9,15 +9,13 @@ support Angular7.0, wyy branch for publish.
  npm run postversion [tag]
 ```
 
-## add
+## Feature
 
-* Horizontal scrolling does not trigger updateRows() methods.
+* [DataTableBodyComponent](src/components/body/body.component.ts) only vertical scrolling trigger updateRows() methods.
 
 ```javascript
-  // src/components/body/body.component.ts
   onBodyScroll() {
     // ...
-
     // this.updateRows(); // source code
     if(event.direction) { // Vertical scroll
       this.updateRows();
@@ -25,10 +23,9 @@ support Angular7.0, wyy branch for publish.
   }
 ```
 
-* Add refresh() method to refresh dataTable.
+* [DatatableComponent](src/components/datatable.component.ts) Update recalculate(): add markForCheck.
 
 ```javascript
-  // src/components/datatable.component.ts
   recalculate(): void {
     this.recalculateDims();
     this.recalculateColumns();
@@ -36,9 +33,21 @@ support Angular7.0, wyy branch for publish.
   }
 ```
 
-## bugfix
+* [DataTableSelectionComponent](src/components/body/selection.component.ts) Update selectRow(): emit current selected row.
 
-* [trackByProp]
+```javascript
+  selectRow(event: KeyboardEvent | MouseEvent, index: number, row: any): void {
+    //...
+    this.select.emit({
+      selected,
+      row // +++ 选中行返回当前行数据
+    });
+  }
+```
+
+## Bugfix
+
+* [DataTableBodyComponent](src/components/body/body.component.ts) [trackByProp]
 
 ```javascript
 constructor(private cd: ChangeDetectorRef) {
