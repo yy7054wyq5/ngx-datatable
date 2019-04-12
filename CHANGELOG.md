@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [15.2.0](https://github.com/swimlane/ngx-datatable/compare/v15.1.1...v15.2.0) (2019-04-12)
+
+
+### Features
+
+* select row emit row data. ([eb79063](https://github.com/swimlane/ngx-datatable/commit/eb79063))
+
+
+
 ## [15.1.1](https://github.com/swimlane/ngx-datatable/compare/v15.1.0...v15.1.1) (2019-04-03)
 
 
