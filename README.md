@@ -5,6 +5,10 @@
 support Angular7.0, wyy branch for publish.
 
 ```cmd
+ # package
+
+ npm run package
+
  # postversion
  npm run postversion --[tag]
 ```

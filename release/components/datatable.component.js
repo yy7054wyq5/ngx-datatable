@@ -616,7 +616,7 @@ var DatatableComponent = /** @class */ (function () {
     DatatableComponent.prototype.recalculate = function () {
         this.recalculateDims();
         this.recalculateColumns();
-        this.cd.markForCheck();
+        this.cd.markForCheck(); // +++
     };
     /**
      * Window resize handler to update sizes.

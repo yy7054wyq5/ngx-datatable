@@ -46,7 +46,8 @@ var DataTableSelectionComponent = /** @class */ (function () {
         (_a = this.selected).push.apply(_a, selected);
         this.prevIndex = index;
         this.select.emit({
-            selected: selected
+            selected: selected,
+            row: row // + 选中行返回当前行数据
         });
     };
     DataTableSelectionComponent.prototype.onActivate = function (model, index) {

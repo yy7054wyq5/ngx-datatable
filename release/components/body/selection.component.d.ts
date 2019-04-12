@@ -16,7 +16,10 @@ export declare class DataTableSelectionComponent {
     rowIdentity: any;
     selectCheck: any;
     activate: EventEmitter<any>;
-    select: EventEmitter<any>;
+    select: EventEmitter<{
+        selected: any[];
+        row: any;
+    }>;
     prevIndex: number;
     selectRow(event: KeyboardEvent | MouseEvent, index: number, row: any): void;
     onActivate(model: Model, index: number): void;

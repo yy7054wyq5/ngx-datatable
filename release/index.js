@@ -1,5 +1,5 @@
 /**
- * angular2-data-table v"15.0.0" (https://github.com/swimlane/angular2-data-table)
+ * angular2-data-table v"15.2.0" (https://github.com/swimlane/angular2-data-table)
  * Copyright 2016
  * Licensed under MIT
  */
@@ -1286,7 +1286,7 @@ var DataTableBodyComponent = /** @class */ (function () {
         this.rowTrackingFn = function (index, row) {
             var idx = this.getRowIndex(row);
             if (this.trackByProp) {
-                return row[this.trackByProp];
+                return row[this.trackByProp]; // +++
                 // return `${idx}-${this.trackByProp}`;
             }
             else {
@@ -1472,7 +1472,6 @@ var DataTableBodyComponent = /** @class */ (function () {
      * when a user is server-side pagination via virtual scroll.
      */
     DataTableBodyComponent.prototype.onBodyScroll = function (event) {
-        console.log(event);
         var scrollYPos = event.scrollYPos;
         var scrollXPos = event.scrollXPos;
         // if scroll change, trigger update
@@ -1488,7 +1487,7 @@ var DataTableBodyComponent = /** @class */ (function () {
         this.updateIndexes();
         this.updatePage(event.direction);
         // this.updateRows();
-        if (event.direction) { // 垂直滚动才更新rows
+        if (event.direction) { // Vertical scroll(垂直滚动才更新rows)
             this.updateRows();
         }
     };
@@ -2225,7 +2224,8 @@ var DataTableSelectionComponent = /** @class */ (function () {
         (_a = this.selected).push.apply(_a, selected);
         this.prevIndex = index;
         this.select.emit({
-            selected: selected
+            selected: selected,
+            row: row // + 选中行返回当前行数据
         });
     };
     DataTableSelectionComponent.prototype.onActivate = function (model, index) {
@@ -3382,7 +3382,7 @@ var DatatableComponent = /** @class */ (function () {
     DatatableComponent.prototype.recalculate = function () {
         this.recalculateDims();
         this.recalculateColumns();
-        this.cd.markForCheck();
+        this.cd.markForCheck(); // +++
     };
     /**
      * Window resize handler to update sizes.

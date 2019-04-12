@@ -47,7 +47,7 @@ var DataTableBodyComponent = /** @class */ (function () {
         this.rowTrackingFn = function (index, row) {
             var idx = this.getRowIndex(row);
             if (this.trackByProp) {
-                return row[this.trackByProp];
+                return row[this.trackByProp]; // +++
                 // return `${idx}-${this.trackByProp}`;
             }
             else {
@@ -233,7 +233,6 @@ var DataTableBodyComponent = /** @class */ (function () {
      * when a user is server-side pagination via virtual scroll.
      */
     DataTableBodyComponent.prototype.onBodyScroll = function (event) {
-        console.log(event);
         var scrollYPos = event.scrollYPos;
         var scrollXPos = event.scrollXPos;
         // if scroll change, trigger update
@@ -249,7 +248,7 @@ var DataTableBodyComponent = /** @class */ (function () {
         this.updateIndexes();
         this.updatePage(event.direction);
         // this.updateRows();
-        if (event.direction) { // 垂直滚动才更新rows
+        if (event.direction) { // Vertical scroll(垂直滚动才更新rows)
             this.updateRows();
         }
     };
